@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contents" align="center" hidden>
+        <button id="incrementButton">Tekan Aku</button>
+        <h3>Kamu sudah menekan tombol di atas sebanyak <span id="count">0</span></h3>
+    </div>
+
+    <script>
+        function increment() {
+            document.getElementById('count').innerText++;
+
+            if (document.getElementById('count').innerText == 7) {
+                const hiddenMessage = document.createElement('h4');
+                hiddenMessage.innerText = 'Selamat! Kamu menemukan hadiah kejutan..';
+
+                const image = document.createElement('img');
+                image.setAttribute(
+                    'src',
+                    'https://raw.githubusercontent.com/dicodingacademy/a315-web-pemula-labs/shared-files/catto.jpg',
+                );
+
+                const contents= document.querySelector('.contents');
+                contents.appendChild(hiddenMessage).appendChild(image);
+            }
+        }
+
+        function welcome() {
+            alert('Muncullah elemen-elemen HTML!');
+            const contents = document.querySelector('.contents');
+            contents.removeAttribute('hidden');
+        }
+        document.getElementById('incrementButton').onclick = increment;
+        document.body.onload = welcome;
+    </script>
+</body>
+</html>
